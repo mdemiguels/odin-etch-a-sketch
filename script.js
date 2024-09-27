@@ -1,3 +1,18 @@
 const gridContainer = document.querySelector('.container');
 
-console.log(gridContainer);
+document.addEventListener('DOMContentLoaded', () => {
+
+    for (let i = 0; i < 16; i++) {
+        
+        const divRow = document.createElement('DIV');
+        gridContainer.appendChild(divRow);
+
+        for (let j = 0; j < 16; j++) {
+            
+            const divColumn = document.createElement('DIV');
+            divRow.appendChild(divColumn);
+
+        }
+        
+    }
+});
