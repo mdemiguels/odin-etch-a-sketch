@@ -9,16 +9,25 @@ for (let i = 0; i < 256; i++) {
 
 document.addEventListener("DOMContentLoaded", () => {
     const pixelNodeList = document.querySelectorAll(".pixel");
+    let isDrawing = false;
+
+    gridContainer.addEventListener("mousedown", () => {
+        isDrawing = true;
+    });
+
+    gridContainer.addEventListener("mouseup", () => {
+        isDrawing = false;
+    });
 
     pixelNodeList.forEach((pixel) => {
+        pixel.addEventListener("mousedown", () => {
+            pixel.classList.add("draw");
+        });
 
         pixel.addEventListener("mouseover", () => {
-            pixel.classList = "pixel draw";
+            if (isDrawing) {
+                pixel.classList.add("draw");
+            }
         });
-
-        pixel.addEventListener("mouseout", () => {
-            pixel.classList = "pixel";
-        });
-
     });
 });
