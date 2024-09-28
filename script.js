@@ -1,10 +1,20 @@
 const gridContainer = document.querySelector(".grid-container");
+let gridWidth = 16;
+let gridHeight = 16;
 
-for (let i = 0; i < 256; i++) {
-    const divPixel = document.createElement("DIV");
-    divPixel.classList = "pixel";
+for (let i = 0; i < gridWidth; i++) {
+    let pixelWidth = gridContainer.offsetWidth / gridWidth;
+    let pixelHeight = gridContainer.offsetWidth / gridHeight;
 
-    gridContainer.appendChild(divPixel);
+    const divColumn = generatePixelDiv(pixelWidth, pixelHeight);
+    gridContainer.appendChild(divColumn);
+
+    for (let i = 0; i < gridHeight; i++) {
+
+        const divRow = generatePixelDiv(pixelWidth, pixelHeight);
+        gridContainer.appendChild(divRow);
+        
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -31,3 +41,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+function generatePixelDiv(pixelWidth, pixelHeight) {
+    const divPixel = document.createElement("DIV");
+    divPixel.classList.add("pixel");
+    divPixel.style.width = pixelWidth + "px";
+    divPixel.style.height = pixelHeight + "px";
+    divPixel.style.border = "1px solid black";
+    return divPixel;
+}
+
