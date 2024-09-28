@@ -3,7 +3,7 @@
 :root {
     --primary-bg-color: #dedede;
     --secondary-bg-color: #705C53;
-    --button-bg-color: #EDDFE0;
+    --button-bg-color: #eab3b7;
     --sheet-bg-color: #F2EFE5;
     --font-color: #F5F5F7;
 }
@@ -30,8 +30,9 @@ nav {
     justify-content: center;
 }
 
-.options-container>button {
+button {
     background-color: var(--button-bg-color);
+    color: var(--font-color);
     padding: 5px 10px;
     border-radius: 3px;
     border: none;
@@ -69,4 +70,34 @@ a {
 
 .draw {
     background-color: #000;
+}
+
+.popup {
+    position: absolute;
+    width: 400px;
+    background-color: var(--secondary-bg-color);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    gap: 35px;
+    visibility: hidden;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+input {
+    width: 60px;
+    padding: 5px;
+    border-radius: 3px;
+    border: none;
+    margin: 0 10px;
 }

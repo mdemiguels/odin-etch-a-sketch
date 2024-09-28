@@ -19,9 +19,11 @@
         <section class="grid-container"></section>
         <div class="popup">
             <h3>How many squares per side do you want?</h3>
-            <form>
-                <label for="squares">Set a number:</label>
-                <input type="number" name="squares" id="squares" max="100">
+            <form method="post">
+                <div class="input-container">
+                    <label for="squares">Set a number:</label>
+                    <input type="number" name="squares" id="squares" min="16" max="100">
+                </div>
                 <button>Submit</button>
             </form>
         </div>
