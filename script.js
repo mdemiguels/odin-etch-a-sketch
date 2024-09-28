@@ -1,4 +1,5 @@
 const gridContainer = document.querySelector(".grid-container");
+const popup = document.querySelector(".popup");
 let gridWidth = 16;
 let gridHeight = 16;
 
@@ -28,6 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+function openPopup() {
+    popup.classList.add("open-popup");
+}
+
+function closePopup() {
+    popup.classList = "popup";
+}
 
 function generateGrid() {
     let pixelWidth = gridContainer.offsetWidth / gridWidth;

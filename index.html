@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-    <title>Etch a sketch!</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+        <script src="script.js" defer></script>
+        <title>Etch a sketch!</title>
+    </head>
+    <body>
+        <nav>
+            <section class="options-container">
+                <button onclick="openPopup()">Set new grid</button>
+            </section>
+        </nav>
 
-    <nav>
-        <section class="options-container">
-            <button onclick="openPopup()">Set new grid</button>
-        </section>
-    </nav>
-
-    <main>
-        <section class="grid-container"></section>
-        <div class="popup">
-            <h3>How many squares per side do you want?</h3>
-            <form method="post">
+        <main>
+            <section class="grid-container"></section>
+            <div class="popup">
+                <h3>How many squares per side do you want?</h3>
                 <div class="input-container">
                     <label for="squares">Set a number:</label>
-                    <input type="number" name="squares" id="squares" min="16" max="100">
+                    <input
+                        type="number"
+                        name="squares"
+                        id="squares"
+                        min="16"
+                        max="100"
+                    />
                 </div>
-                <button>Submit</button>
-            </form>
-        </div>
-    </main>
+                <button onclick="closePopup()">OK</button>
+            </div>
+        </main>
 
-    <footer>
-        <p>This is a project in the Foundations path of The Odin Project &copy; program. Crafted by <a href="https://github.com/mdemiguels/">@mdemiguels</a></p>
-    </footer>
-
-</body>
+        <footer>
+            <p>
+                This is a project in the Foundations path of The Odin Project
+                &copy; program. Crafted by
+                <a href="https://github.com/mdemiguels/">@mdemiguels</a>
+            </p>
+        </footer>
+    </body>
 </html>
