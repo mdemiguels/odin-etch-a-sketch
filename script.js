@@ -49,6 +49,6 @@ function generatePixelDiv(pixelWidth, pixelHeight) {
     divPixel.classList.add("pixel");
     divPixel.style.width = pixelWidth + "px";
     divPixel.style.height = pixelHeight + "px";
-    divPixel.style.border = "1px solid black";
+    divPixel.style.border = "1px dotted grey";
     return divPixel;
 }
