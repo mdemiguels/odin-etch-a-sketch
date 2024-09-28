@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
+
 :root {
-    --primary-bg-color: #FFF;
-    --secondary-bg-color: #000;
+    --primary-bg-color: #dedede;
+    --secondary-bg-color: #705C53;
+    --button-bg-color: #EDDFE0;
+    --sheet-bg-color: #F2EFE5;
+    --font-color: #F5F5F7;
 }
 
 * {
@@ -10,23 +15,44 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Fredoka", sans-serif;
     font-weight: 400;
     height: 100vh;
     display: flex;
     flex-direction: column;
+    color: var(--font-color)
 }
 
-header {
-    padding: 50px;
-    text-align: center;
+nav {
+    background-color: var(--secondary-bg-color);
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.options-container>button {
+    background-color: var(--button-bg-color);
+    padding: 5px 10px;
+    border-radius: 3px;
 }
 
 main {
     flex: 1;
-    margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-bg-color);
+}
+
+footer {
+    background-color: var(--secondary-bg-color);
+    text-align: center;
+    padding: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--button-bg-color);
 }
 
 .grid-container {
@@ -35,6 +61,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     flex-shrink: 0;
+    background-color: var(--sheet-bg-color);
 }
 
 .draw {

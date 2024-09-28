@@ -2,20 +2,7 @@ const gridContainer = document.querySelector(".grid-container");
 let gridWidth = 16;
 let gridHeight = 16;
 
-for (let i = 0; i < gridWidth; i++) {
-    let pixelWidth = gridContainer.offsetWidth / gridWidth;
-    let pixelHeight = gridContainer.offsetWidth / gridHeight;
-
-    const divColumn = generatePixelDiv(pixelWidth, pixelHeight);
-    gridContainer.appendChild(divColumn);
-
-    for (let i = 0; i < gridHeight; i++) {
-
-        const divRow = generatePixelDiv(pixelWidth, pixelHeight);
-        gridContainer.appendChild(divRow);
-        
-    }
-}
+generateGrid();
 
 document.addEventListener("DOMContentLoaded", () => {
     const pixelNodeList = document.querySelectorAll(".pixel");
@@ -42,6 +29,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+function generateGrid() {
+    let pixelWidth = gridContainer.offsetWidth / gridWidth;
+    let pixelHeight = gridContainer.offsetHeight / gridHeight;
+
+    for (let i = 0; i < gridWidth; i++) {
+        const divColumn = generatePixelDiv(pixelWidth, pixelHeight);
+        gridContainer.appendChild(divColumn);
+
+        for (let j = 0; j < gridHeight - 1; j++) {
+            const divRow = generatePixelDiv(pixelWidth, pixelHeight);
+            gridContainer.appendChild(divRow);
+        }
+    }
+}
+
 function generatePixelDiv(pixelWidth, pixelHeight) {
     const divPixel = document.createElement("DIV");
     divPixel.classList.add("pixel");
@@ -50,4 +52,3 @@ function generatePixelDiv(pixelWidth, pixelHeight) {
     divPixel.style.border = "1px solid black";
     return divPixel;
 }
-
