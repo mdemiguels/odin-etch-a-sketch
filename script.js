@@ -41,17 +41,27 @@ function addEventsToPixels() {
 
 function drawPixel(pixel) {
 
+    setOpacity(pixel);
+
     if (randomizeMode) {
         const color = randomRGBColor();
-        pixel.style.backgroundColor = `rgb(${color[0]},${color[1]},${color[2]})`;
-    } else {
-        if (darkenMode) {
-            let currentOpacity = parseFloat(pixel.style.opacity) || 0;
-            pixel.style.opacity = Math.min(currentOpacity + 0.1, 1);
-        } else {
-            pixel.style.opacity = 1;
+
+        console.log(pixel.className); 
+        if (pixel.className === 'pixel') {
+            pixel.style.backgroundColor = `rgb(${color[0]},${color[1]},${color[2]})`;
         }
+        
+    } else {
         pixel.style.backgroundColor = pixelColor;
+    }
+}
+
+function setOpacity(pixel) {
+    if (darkenMode) {
+        let currentOpacity = parseFloat(pixel.style.opacity) || 0;
+        pixel.style.opacity = Math.min(currentOpacity + 0.1, 1);
+    } else {
+        pixel.style.opacity = 1;
     }
 }
 
