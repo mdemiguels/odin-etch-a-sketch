@@ -1,11 +1,16 @@
 const gridContainer = document.querySelector(".grid-container");
 const popup = document.querySelector(".popup");
+const inputSquare = document.querySelector("#squares");
 let gridWidth = 16;
 let gridHeight = 16;
 
 generateGrid();
 
 document.addEventListener("DOMContentLoaded", () => {
+    addEventsToPixels();
+});
+
+function addEventsToPixels() {
     const pixelNodeList = document.querySelectorAll(".pixel");
     let isDrawing = false;
 
@@ -28,13 +33,18 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
-});
+}
 
 function openPopup() {
     popup.classList.add("open-popup");
 }
 
 function closePopup() {
+    gridWidth = inputSquare.value;
+    gridHeight = inputSquare.value;
+
+    reloadGrid();
+
     popup.classList = "popup";
 }
 
@@ -60,4 +70,16 @@ function generatePixelDiv(pixelWidth, pixelHeight) {
     divPixel.style.height = pixelHeight + "px";
     divPixel.style.border = "1px dotted grey";
     return divPixel;
+}
+
+function reloadGrid() {
+
+    while(gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.firstChild)
+    }
+
+    generatePixelDiv(gridWidth, gridHeight);
+    generateGrid();
+    addEventsToPixels();
+
 }
