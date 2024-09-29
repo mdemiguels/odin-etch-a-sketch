@@ -3,7 +3,9 @@ const popup = document.querySelector(".popup");
 const inputSquare = document.querySelector("#squares");
 let gridWidth = 16;
 let gridHeight = 16;
-let randomize = false;
+let randomizeMode = false;
+let darkenMode = false;
+let pixelColor = "#000";
 
 generateGrid();
 
@@ -36,14 +38,21 @@ function addEventsToPixels() {
     });
 }
 
+
 function drawPixel(pixel) {
-    if (randomize) {
+
+    if (randomizeMode) {
         const color = randomRGBColor();
         pixel.style.backgroundColor = `rgb(${color[0]},${color[1]},${color[2]})`;
     } else {
-        pixel.style.backgroundColor = "#000";
+        if (darkenMode) {
+            let currentOpacity = parseFloat(pixel.style.opacity) || 0;
+            pixel.style.opacity = Math.min(currentOpacity + 0.1, 1);
+        } else {
+            pixel.style.opacity = 1;
+        }
+        pixel.style.backgroundColor = pixelColor;
     }
-    pixel.classList.add = "drawed";
 }
 
 function openPopup() {
@@ -68,11 +77,15 @@ function randomRGBColor() {
 }
 
 function activateRandomMode() {
-    randomize = true;
+    randomizeMode = true;
 }
 
 function activateNormalMode() {
-    randomize = false;
+    randomizeMode = false;
+}
+
+function activateDarkenMode() {
+    darkenMode = darkenMode ? false : true;
 }
 
 function generateGrid() {
