@@ -3,6 +3,7 @@ const popup = document.querySelector(".popup");
 const inputSquare = document.querySelector("#squares");
 let gridWidth = 16;
 let gridHeight = 16;
+let randomize = true;
 
 generateGrid();
 
@@ -24,12 +25,20 @@ function addEventsToPixels() {
 
     pixelNodeList.forEach((pixel) => {
         pixel.addEventListener("mousedown", () => {
-            pixel.classList.add("draw");
+            if (randomize) {
+                console.log(randomRGBColor());
+            } else {
+                pixel.classList.add("draw");
+            }
         });
 
         pixel.addEventListener("mouseover", () => {
             if (isDrawing) {
-                pixel.classList.add("draw");
+                if (randomize) {
+                    console.log(randomRGBColor());
+                } else {
+                    pixel.classList.add("draw");
+                }
             }
         });
     });
@@ -46,6 +55,14 @@ function closePopup() {
     reloadGrid();
 
     popup.classList = "popup";
+}
+
+function randomRGBColor() {
+    const red = Math.floor(Math.random() * 255);
+    const green = Math.floor(Math.random() * 255);
+    const blue = Math.floor(Math.random() * 255);
+
+    return [red, green, blue];
 }
 
 function generateGrid() {
@@ -73,13 +90,11 @@ function generatePixelDiv(pixelWidth, pixelHeight) {
 }
 
 function reloadGrid() {
-
-    while(gridContainer.firstChild) {
-        gridContainer.removeChild(gridContainer.firstChild)
+    while (gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.firstChild);
     }
 
     generatePixelDiv(gridWidth, gridHeight);
     generateGrid();
     addEventsToPixels();
-
 }
