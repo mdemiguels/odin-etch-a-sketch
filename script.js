@@ -26,7 +26,8 @@ function addEventsToPixels() {
     pixelNodeList.forEach((pixel) => {
         pixel.addEventListener("mousedown", () => {
             if (randomize) {
-                console.log(randomRGBColor());
+                const color = randomRGBColor();
+                pixel.style.backgroundColor = `rgb(${color[0]},${color[1]},${color[2]})`;
             } else {
                 pixel.classList.add("draw");
             }
@@ -35,7 +36,8 @@ function addEventsToPixels() {
         pixel.addEventListener("mouseover", () => {
             if (isDrawing) {
                 if (randomize) {
-                    console.log(randomRGBColor());
+                    const color = randomRGBColor();
+                    pixel.style.backgroundColor = `rgb(${color[0]},${color[1]},${color[2]})`;
                 } else {
                     pixel.classList.add("draw");
                 }
