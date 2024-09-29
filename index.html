@@ -9,9 +9,11 @@
     </head>
     <body>
         <nav>
-            <section class="options-container">
-                <button onclick="openPopup()">Set new grid</button>
-            </section>
+            <button onclick="openPopup()">Set new grid</button>
+            <div class="options-container">
+                <button onclick="activateRandomMode()">Rainbow mode</button>
+                <button onclick="activateNormalMode()">Pencil mode</button>
+            </div>
         </nav>
 
         <main>
@@ -26,6 +28,7 @@
                         id="squares"
                         min="16"
                         max="100"
+                        value="16"
                     />
                 </div>
                 <button onclick="closePopup()">OK</button>

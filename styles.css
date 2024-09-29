@@ -28,6 +28,7 @@ nav {
     padding: 30px;
     display: flex;
     justify-content: center;
+    gap: 15px;
 }
 
 button {
@@ -66,10 +67,6 @@ a {
     flex-wrap: wrap;
     flex-shrink: 0;
     background-color: var(--sheet-bg-color);
-}
-
-.draw {
-    background-color: #000;
 }
 
 .popup {

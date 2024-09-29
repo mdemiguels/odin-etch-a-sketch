@@ -3,7 +3,7 @@ const popup = document.querySelector(".popup");
 const inputSquare = document.querySelector("#squares");
 let gridWidth = 16;
 let gridHeight = 16;
-let randomize = true;
+let randomize = false;
 
 generateGrid();
 
@@ -29,17 +29,23 @@ function addEventsToPixels() {
                 const color = randomRGBColor();
                 pixel.style.backgroundColor = `rgb(${color[0]},${color[1]},${color[2]})`;
             } else {
-                pixel.classList.add("draw");
+                pixel.style.backgroundColor = "#000";
             }
+            pixel.classList.add = "drawed";
         });
 
         pixel.addEventListener("mouseover", () => {
             if (isDrawing) {
-                if (randomize) {
-                    const color = randomRGBColor();
-                    pixel.style.backgroundColor = `rgb(${color[0]},${color[1]},${color[2]})`;
+                if (isDrawed) {
+
                 } else {
-                    pixel.classList.add("draw");
+                    if (randomize) {
+                        const color = randomRGBColor();
+                        pixel.style.backgroundColor = `rgb(${color[0]},${color[1]},${color[2]})`;
+                    } else {
+                        pixel.style.backgroundColor = "#000";
+                    }
+                    pixel.classList.add = "drawed";
                 }
             }
         });
@@ -65,6 +71,14 @@ function randomRGBColor() {
     const blue = Math.floor(Math.random() * 255);
 
     return [red, green, blue];
+}
+
+function activateRandomMode() {
+    randomize = true;
+}
+
+function activateNormalMode() {
+    randomize = false;
 }
 
 function generateGrid() {
