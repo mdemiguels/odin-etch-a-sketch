@@ -25,31 +25,25 @@ function addEventsToPixels() {
 
     pixelNodeList.forEach((pixel) => {
         pixel.addEventListener("mousedown", () => {
-            if (randomize) {
-                const color = randomRGBColor();
-                pixel.style.backgroundColor = `rgb(${color[0]},${color[1]},${color[2]})`;
-            } else {
-                pixel.style.backgroundColor = "#000";
-            }
-            pixel.classList.add = "drawed";
+            drawPixel(pixel);
         });
 
         pixel.addEventListener("mouseover", () => {
             if (isDrawing) {
-                if (isDrawed) {
-
-                } else {
-                    if (randomize) {
-                        const color = randomRGBColor();
-                        pixel.style.backgroundColor = `rgb(${color[0]},${color[1]},${color[2]})`;
-                    } else {
-                        pixel.style.backgroundColor = "#000";
-                    }
-                    pixel.classList.add = "drawed";
-                }
+                drawPixel(pixel);
             }
         });
     });
+}
+
+function drawPixel(pixel) {
+    if (randomize) {
+        const color = randomRGBColor();
+        pixel.style.backgroundColor = `rgb(${color[0]},${color[1]},${color[2]})`;
+    } else {
+        pixel.style.backgroundColor = "#000";
+    }
+    pixel.classList.add = "drawed";
 }
 
 function openPopup() {
